@@ -22,7 +22,7 @@ class App extends Component {
     this.setState({ todoItems: todos });
   };
 
-  updateTodos = (key, updatedTodo) => {
+  updateTodoList = (key, updatedTodo) => {
     const todos = { ...this.state.todoItems };
     todos[key] = updatedTodo;
     this.setState({ todoItems: todos });
@@ -31,6 +31,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1 style={{color:'white'}}>Todos</h1>
         <TodoForm addToDoItems={this.addToDoItems} />
         <ul>
           {Object.keys(this.state.todoItems).map(key => (
@@ -39,7 +40,7 @@ class App extends Component {
               index={key}
               todoItems={this.state.todoItems[key]}
               removeToDoItem={this.removeToDoItem}
-              updateTodos={this.updateTodos}
+              updateTodos={this.updateTodoList}
             />
           ))}
         </ul>
