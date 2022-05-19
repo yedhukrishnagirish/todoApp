@@ -1,4 +1,5 @@
 import React from "react";
+import CloseButton from "./CloseButton";
 
 class TodoList extends React.Component {
   handleChange = event => {
@@ -21,6 +22,7 @@ class TodoList extends React.Component {
   render() {
     return (
       <li className={this.props.todoItems.isCompleted ? "done" : null}>
+       
         <input
           type="checkbox"
           name="isCompleted"
@@ -35,12 +37,13 @@ class TodoList extends React.Component {
           onChange={this.handleChange}
         />
         {/* <button>Edit</button> */}
-        <button
-          className="del-btn"
-          onClick={() => this.props.removeToDoItem(this.props.index)}
-        >
-          x
-        </button>
+        <CloseButton
+        
+        removeToDoItem={this.props.removeToDoItem}
+        index={this.props.index}
+
+        />
+       
       </li>
     );
   }
